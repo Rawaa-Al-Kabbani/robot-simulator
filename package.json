@@ -1,0 +1,17 @@
+{
+  "name": "robot-simulator",
+  "version": "1.0.0",
+  "description": "Robot simulator",
+  "main": "build/main.js",
+  "author": "Rawaa Al Kabbani <rawaa.alkabbani@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/main.js"
+  }
+}
