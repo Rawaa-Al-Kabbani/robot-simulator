@@ -1,27 +1,54 @@
-import { Direction } from "./types/direction";
 import { Robot } from "./classes/robot";
 import { Room } from "./classes/room";
-import assert from "assert";
+import { Action, Simulator } from "./classes/simulator";
+import { Direction } from "./types/direction";
 
 function main() {
-  const robot = new Robot({
-    direction: Direction.N,
-    position: {
-      x: 0,
-      y: 0,
-    },
+  const simulator1 = new Simulator({
+    actions: [
+      Action.Right,
+      Action.Forward,
+      Action.Right,
+      Action.Forward,
+      Action.Forward,
+      Action.Right,
+      Action.Forward,
+      Action.Right,
+      Action.Forward,
+    ],
+    robot: new Robot({
+      direction: Direction.N,
+      position: {
+        x: 1,
+        y: 2,
+      },
+    }),
+    room: new Room({ height: 5, width: 5 }),
   });
 
-  robot.rotateRight();
-  robot.moveForward();
+  console.log(simulator1.run());
 
-  assert(robot.position.x === 1);
-  assert(robot.position.y === 0);
-  assert(robot.direction === Direction.E);
+  const simulator2 = new Simulator({
+    actions: [
+      Action.Forward,
+      Action.Forward,
+      Action.Left,
+      Action.Forward,
+      Action.Forward,
+      Action.Right,
+      Action.Forward,
+    ],
+    robot: new Robot({
+      direction: Direction.N,
+      position: {
+        x: 2,
+        y: 2,
+      },
+    }),
+    room: new Room({ height: 3, width: 3 }),
+  });
 
-  const room = new Room({ height: 5, width: 5 });
-
-  assert(room.containsPosition(robot.position));
+  simulator2.run();
 }
 
 main();
