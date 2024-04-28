@@ -7,42 +7,52 @@ export interface RobotInput {
 }
 
 export class Robot {
-  direction: Direction;
-  position: Position;
+  protected _direction: Direction;
+  protected _position: Position;
 
   constructor(readonly robotInput: RobotInput) {
-    this.direction = robotInput.direction;
-    this.position = robotInput.position;
+    this._direction = robotInput.direction;
+    this._position = robotInput.position;
+  }
+
+  // Getter for the Direction.
+  get direction() {
+    return this._direction;
+  }
+
+  // Getter for the Position.
+  get position() {
+    return this._position;
   }
 
   // Rotates the Robot to the right by 90 degrees.
   rotateRight() {
-    this.direction = rotateRight(this.direction);
+    this._direction = rotateRight(this._direction);
   }
 
   // Rotates the Robot to the left by 90 degrees.
   rotateLeft() {
-    this.direction = rotateLeft(this.direction);
+    this._direction = rotateLeft(this._direction);
   }
 
   // Moves the Robot 1 step forward in the current direction.
   // If the current direction is not one of N, E, S, W then it will throw an "Invalid direction" error.
   moveForward() {
-    switch (this.direction) {
+    switch (this._direction) {
       case Direction.N:
-        this.position.y -= 1;
+        this._position.y -= 1;
         break;
       case Direction.S:
-        this.position.y += 1;
+        this._position.y += 1;
         break;
       case Direction.E:
-        this.position.x += 1;
+        this._position.x += 1;
         break;
       case Direction.W:
-        this.position.x -= 1;
+        this._position.x -= 1;
         break;
       default:
-        throw new Error(`Invalid direction: ${this.direction}`);
+        throw new Error(`Invalid direction: ${this._direction}`);
     }
   }
 }
