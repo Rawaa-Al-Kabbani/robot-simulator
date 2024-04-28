@@ -1,54 +1,32 @@
-import { Robot } from "./classes/robot";
-import { Room } from "./classes/room";
-import { Action, Simulator } from "./classes/simulator";
-import { Direction } from "./types/direction";
+import { createInterface } from "node:readline";
+import { parseSimulatorInput } from "./modules/simulator-parser";
+import { RobotOutOfBoundsError, Simulator } from "./classes/simulator";
 
-function main() {
-  const simulator1 = new Simulator({
-    actions: [
-      Action.Right,
-      Action.Forward,
-      Action.Right,
-      Action.Forward,
-      Action.Forward,
-      Action.Right,
-      Action.Forward,
-      Action.Right,
-      Action.Forward,
-    ],
-    robot: new Robot({
-      direction: Direction.N,
-      position: {
-        x: 1,
-        y: 2,
-      },
-    }),
-    room: new Room({ height: 5, width: 5 }),
-  });
+async function main() {
+  const lines: string[] = [];
 
-  console.log(simulator1.run());
+  // Reads the input from stdin line by line.
+  for await (const line of createInterface({ input: process.stdin })) {
+    lines.push(line);
+  }
 
-  const simulator2 = new Simulator({
-    actions: [
-      Action.Forward,
-      Action.Forward,
-      Action.Left,
-      Action.Forward,
-      Action.Forward,
-      Action.Right,
-      Action.Forward,
-    ],
-    robot: new Robot({
-      direction: Direction.N,
-      position: {
-        x: 2,
-        y: 2,
-      },
-    }),
-    room: new Room({ height: 3, width: 3 }),
-  });
+  // Tries to pase the input lines as Simulator input.
+  const simulatorInput = parseSimulatorInput(lines);
 
-  simulator2.run();
+  // Create a new Simulator based on the input.
+  const simulator = new Simulator(simulatorInput);
+  try {
+    // Runs the simulator and logs the result.
+    console.log(simulator.run());
+  } catch (error) {
+    // If the Robot moves outside the Room a RobotOutOfBoundsError will be thrown.
+    // Here we handle the error and logs the error message.
+    if (error instanceof RobotOutOfBoundsError) {
+      console.log(error.message);
+    } else {
+      throw error;
+    }
+  }
 }
 
 main();

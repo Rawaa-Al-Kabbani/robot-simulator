@@ -1,4 +1,4 @@
-import { directionToString } from "../types/direction";
+import { directionToSymbol } from "../types/direction";
 import { Robot } from "./robot";
 import { Room } from "./room";
 
@@ -71,6 +71,6 @@ export class Simulator {
     }
 
     // Returns the report with the Robot position and direction.
-    return `Report: ${this.robot.position.x} ${this.robot.position.y} ${directionToString(this.robot.direction)}`;
+    return `Report: ${this.robot.position.x} ${this.robot.position.y} ${directionToSymbol(this.robot.direction)}`;
   }
 }

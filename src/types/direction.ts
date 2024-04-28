@@ -22,7 +22,12 @@ export const rotateLeft = (direction: Direction): Direction => {
   return direction - 90;
 };
 
+// Returns the direction from the symbol.
+export const symbolToDirection = (key: keyof typeof Direction): Direction => {
+  return Direction[key];
+};
+
 // Returns the symbol for the direction.
-export const directionToString = (direction: Direction): string => {
+export const directionToSymbol = (direction: Direction): string => {
   return Direction[direction];
 };
