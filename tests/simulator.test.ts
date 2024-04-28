@@ -1,13 +1,13 @@
 import { Robot } from "../src/classes/robot";
 import { Room } from "../src/classes/room";
-import { Action, Simulator } from "../src/classes/simulator";
+import { SimulatorAction, Simulator } from "../src/classes/simulator";
 import { Direction } from "../src/types/direction";
 
 describe("Simulator", () => {
   describe("run", () => {
     it("should throw a 'Robot out of bounds' error if the robot starts outside the room", () => {
       const simulator = new Simulator({
-        actions: [Action.Left],
+        actions: [SimulatorAction.Left],
         robot: new Robot({
           direction: Direction.S,
           position: {
@@ -23,13 +23,13 @@ describe("Simulator", () => {
     it("should throw a 'Robot out of bounds' error if the robot moves outside the room", () => {
       const simulator = new Simulator({
         actions: [
-          Action.Forward,
-          Action.Forward,
-          Action.Left,
-          Action.Forward,
-          Action.Forward,
-          Action.Right,
-          Action.Forward,
+          SimulatorAction.Forward,
+          SimulatorAction.Forward,
+          SimulatorAction.Left,
+          SimulatorAction.Forward,
+          SimulatorAction.Forward,
+          SimulatorAction.Right,
+          SimulatorAction.Forward,
         ],
         robot: new Robot({
           direction: Direction.N,
@@ -59,15 +59,15 @@ describe("Simulator", () => {
             },
           }),
           actions: [
-            Action.Right,
-            Action.Forward,
-            Action.Right,
-            Action.Forward,
-            Action.Forward,
-            Action.Right,
-            Action.Forward,
-            Action.Right,
-            Action.Forward,
+            SimulatorAction.Right,
+            SimulatorAction.Forward,
+            SimulatorAction.Right,
+            SimulatorAction.Forward,
+            SimulatorAction.Forward,
+            SimulatorAction.Right,
+            SimulatorAction.Forward,
+            SimulatorAction.Right,
+            SimulatorAction.Forward,
           ],
           expectedResult: "Report: 1 3 N",
         },
@@ -84,14 +84,14 @@ describe("Simulator", () => {
             },
           }),
           actions: [
-            Action.Right,
-            Action.Forward,
-            Action.Left,
-            Action.Forward,
-            Action.Forward,
-            Action.Left,
-            Action.Right,
-            Action.Forward,
+            SimulatorAction.Right,
+            SimulatorAction.Forward,
+            SimulatorAction.Left,
+            SimulatorAction.Forward,
+            SimulatorAction.Forward,
+            SimulatorAction.Left,
+            SimulatorAction.Right,
+            SimulatorAction.Forward,
           ],
           expectedResult: "Report: 3 1 E",
         },

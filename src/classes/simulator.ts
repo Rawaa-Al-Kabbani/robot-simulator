@@ -8,20 +8,20 @@ export class RobotOutOfBoundsError extends Error {
   }
 }
 
-export enum Action {
+export enum SimulatorAction {
   Left = "L",
   Right = "R",
   Forward = "F",
 }
 
 export interface SimulatorInput {
-  actions: Action[];
+  actions: SimulatorAction[];
   robot: Robot;
   room: Room;
 }
 
 export class Simulator {
-  protected readonly actions: Action[];
+  protected readonly actions: SimulatorAction[];
   protected readonly robot: Robot;
   protected readonly room: Room;
 
@@ -38,15 +38,15 @@ export class Simulator {
   }
 
   // Executes an action on the Robot.
-  executeAction(action: Action) {
+  executeAction(action: SimulatorAction) {
     switch (action) {
-      case Action.Forward:
+      case SimulatorAction.Forward:
         this.robot.moveForward();
         break;
-      case Action.Right:
+      case SimulatorAction.Right:
         this.robot.rotateRight();
         break;
-      case Action.Left:
+      case SimulatorAction.Left:
         this.robot.rotateLeft();
         break;
       default:

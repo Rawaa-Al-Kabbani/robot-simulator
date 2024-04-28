@@ -1,25 +1,29 @@
 import { Robot } from "../classes/robot";
 import { Room } from "../classes/room";
-import { Action, SimulatorInput } from "../classes/simulator";
+import { SimulatorAction, SimulatorInput } from "../classes/simulator";
 import { Direction, symbolToDirection } from "../types/direction";
 
 // Parses the actions array from the line.
-function parseActions(line: string): Action[] {
+function parseActions(line: string): SimulatorAction[] {
   const actions = line.split("");
 
   if (actions.length === 0) {
     throw new Error(`Invalid Actions: Expected at least one action`);
   }
 
-  const possibleValues = Object.values(Action);
+  const possibleValues = Object.values(SimulatorAction);
 
-  if (!actions.every((action) => possibleValues.includes(action as Action))) {
+  if (
+    !actions.every((action) =>
+      possibleValues.includes(action as SimulatorAction),
+    )
+  ) {
     throw new Error(
       `Invalid Actions: Expected Actions to include only these characters ${possibleValues.join(", ")}`,
     );
   }
 
-  return actions as Action[];
+  return actions as SimulatorAction[];
 }
 
 // Parses the Robot from the line.
