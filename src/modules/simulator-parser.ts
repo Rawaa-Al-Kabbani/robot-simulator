@@ -11,15 +11,15 @@ function parseActions(line: string): SimulatorAction[] {
     throw new Error(`Invalid Actions: Expected at least one action`);
   }
 
-  const possibleValues = Object.values(SimulatorAction);
+  const actionSymbols = Object.values(SimulatorAction);
 
   if (
     !actions.every((action) =>
-      possibleValues.includes(action as SimulatorAction),
+      actionSymbols.includes(action as SimulatorAction),
     )
   ) {
     throw new Error(
-      `Invalid Actions: Expected Actions to include only these characters ${possibleValues.join(", ")}`,
+      `Invalid Actions: Expected Actions to include only these characters ${actionSymbols.join(", ")}`,
     );
   }
 
