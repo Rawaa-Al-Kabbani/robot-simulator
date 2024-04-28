@@ -8,10 +8,12 @@
   "private": true,
   "devDependencies": {
     "@types/node": "^20.12.7",
+    "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   },
   "scripts": {
     "build": "tsc",
-    "start": "node build/main.js"
+    "start": "node build/main.js",
+    "format": "prettier --write ."
   }
 }
