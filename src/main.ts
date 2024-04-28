@@ -8,6 +8,10 @@ async function main() {
   // Reads the input from stdin line by line.
   for await (const line of createInterface({ input: process.stdin })) {
     lines.push(line);
+
+    if (lines.length === 3) {
+      break;
+    }
   }
 
   // Tries to pase the input lines as Simulator input.
