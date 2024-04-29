@@ -16,6 +16,7 @@ const runSimulator = (lines: string[]) => {
     // Here we handle the error and logs the error message.
     if (error instanceof RobotOutOfBoundsError) {
       console.log(error.message);
+      process.exit(1);
     } else {
       throw error;
     }
@@ -23,7 +24,7 @@ const runSimulator = (lines: string[]) => {
 };
 
 function trimLine(line: string): string {
-  return line.trim().replace(/ +/g, " ");
+  return line.toUpperCase().trim().replace(/ +/g, " ");
 }
 
 async function main() {

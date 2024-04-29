@@ -1,6 +1,24 @@
 # Robot simulator
 
-This is my implementation of the Robot simulator problem.
+This is an implementation of the Robot simulator where the robot can move around in a room.
+
+Inputs:
+Room (width, height) which represents the dimensions of the room the robot can move in where width, height are numbers.
+ex: 5 5
+
+Robot (x, y, direction) that represents the starting point for the robot and its orientation in the space where x, y are numbers and direction is one of these characters:
+ N North
+ E East
+ S South
+ W West
+
+ex: 1 2 N
+
+Actions (ex: LRFFRFFR) which represents a number of navigation commands in the form of characters where action can be one of these characters:
+ L Turn left
+ R Turn right
+ F Walk forward
+
 
 ## How to run it locally
 
