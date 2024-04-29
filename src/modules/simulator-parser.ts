@@ -5,7 +5,7 @@ import { Direction, symbolToDirection } from "../types/direction";
 
 // Parses the actions array from the line.
 export function parseActions(line: string): SimulatorAction[] {
-  const actions = line.split("");
+  const actions = line.split("").filter((action) => action !== " ");
 
   if (actions.length === 0) {
     throw new Error(`Invalid Actions: Expected at least one action`);

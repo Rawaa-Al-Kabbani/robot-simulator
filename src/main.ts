@@ -22,6 +22,10 @@ const runSimulator = (lines: string[]) => {
   }
 };
 
+function trimLine(line: string): string {
+  return line.trim().replace(/ +/g, " ");
+}
+
 async function main() {
   let lines: string[] = [];
 
@@ -29,7 +33,7 @@ async function main() {
 
   // Reads the input from stdin line by line in chunks of three.
   for await (const line of createInterface({ input: process.stdin })) {
-    lines.push(line.trim());
+    lines.push(trimLine(line));
 
     if (lines.length === 3) {
       runSimulator(lines);
