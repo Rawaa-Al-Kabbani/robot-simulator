@@ -21,6 +21,7 @@
     "test": "jest",
     "case1": "node build/main.js < cases/1.txt",
     "case2": "node build/main.js < cases/2.txt",
-    "case3": "node build/main.js < cases/3.txt"
+    "case3": "node build/main.js < cases/3.txt",
+    "multi-cases": "node build/main.js < cases/multi-cases.txt"
   }
 }

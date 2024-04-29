@@ -2,18 +2,7 @@ import { createInterface } from "node:readline";
 import { parseSimulatorInput } from "./modules/simulator-parser";
 import { RobotOutOfBoundsError, Simulator } from "./classes/simulator";
 
-async function main() {
-  const lines: string[] = [];
-
-  // Reads the input from stdin line by line.
-  for await (const line of createInterface({ input: process.stdin })) {
-    lines.push(line);
-
-    if (lines.length === 3) {
-      break;
-    }
-  }
-
+const runSimulator = (lines: string[]) => {
   // Tries to pase the input lines as Simulator input.
   const simulatorInput = parseSimulatorInput(lines);
 
@@ -29,6 +18,20 @@ async function main() {
       console.log(error.message);
     } else {
       throw error;
+    }
+  }
+};
+
+async function main() {
+  let lines: string[] = [];
+
+  // Reads the input from stdin line by line in chunks of three.
+  for await (const line of createInterface({ input: process.stdin })) {
+    lines.push(line);
+
+    if (lines.length === 3) {
+      runSimulator(lines);
+      lines = [];
     }
   }
 }
