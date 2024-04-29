@@ -24,6 +24,9 @@ const runSimulator = (lines: string[]) => {
 
 async function main() {
   let lines: string[] = [];
+
+  console.log("Ready to accept cases, line by line.");
+
   // Reads the input from stdin line by line in chunks of three.
   for await (const line of createInterface({ input: process.stdin })) {
     lines.push(line.trim());
