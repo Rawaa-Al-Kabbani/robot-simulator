@@ -4,7 +4,7 @@ import { SimulatorAction, SimulatorInput } from "../classes/simulator";
 import { Direction, symbolToDirection } from "../types/direction";
 
 // Parses the actions array from the line.
-function parseActions(line: string): SimulatorAction[] {
+export function parseActions(line: string): SimulatorAction[] {
   const actions = line.split("");
 
   if (actions.length === 0) {
@@ -27,7 +27,7 @@ function parseActions(line: string): SimulatorAction[] {
 }
 
 // Parses the Robot from the line.
-function parseRobot(line: string): Robot {
+export function parseRobot(line: string): Robot {
   const parts = line.split(" ");
 
   if (parts.length !== 3) {
@@ -39,13 +39,13 @@ function parseRobot(line: string): Robot {
 
   if (isNaN(positionX) || positionX < 0) {
     throw new Error(
-      `Invalid Robot position: Expected X to be an integer greater than 0`,
+      `Invalid Robot position: Expected X to be a positive integer`,
     );
   }
 
   if (isNaN(positionY) || positionY < 0) {
     throw new Error(
-      `Invalid Robot position: Expected Y to be an integer greater than 0`,
+      `Invalid Robot position: Expected Y to be a positive integer`,
     );
   }
 
@@ -67,11 +67,11 @@ function parseRobot(line: string): Robot {
 }
 
 // Parses the Room from the line.
-function parseRoom(line: string): Room {
+export function parseRoom(line: string): Room {
   const parts = line.split(" ");
 
   if (parts.length !== 2) {
-    throw new Error(`Invalid Room dimensions: Expected width and height.`);
+    throw new Error(`Invalid Room dimensions: Expected width and height`);
   }
 
   const [width, height] = parts.map((value) => parseInt(value, 10));
