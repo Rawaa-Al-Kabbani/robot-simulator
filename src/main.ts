@@ -24,10 +24,9 @@ const runSimulator = (lines: string[]) => {
 
 async function main() {
   let lines: string[] = [];
-
   // Reads the input from stdin line by line in chunks of three.
   for await (const line of createInterface({ input: process.stdin })) {
-    lines.push(line);
+    lines.push(line.trim());
 
     if (lines.length === 3) {
       runSimulator(lines);
