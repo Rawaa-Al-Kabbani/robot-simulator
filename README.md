@@ -7,18 +7,17 @@ Room (width, height) which represents the dimensions of the room the robot can m
 ex: 5 5
 
 Robot (x, y, direction) that represents the starting point for the robot and its orientation in the space where x, y are numbers and direction is one of these characters:
- N North
- E East
- S South
- W West
+N North
+E East
+S South
+W West
 
 ex: 1 2 N
 
 Actions (ex: LRFFRFFR) which represents a number of navigation commands in the form of characters where action can be one of these characters:
- L Turn left
- R Turn right
- F Walk forward
-
+L Turn left
+R Turn right
+F Walk forward
 
 ## How to run it locally
 

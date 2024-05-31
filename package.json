@@ -18,6 +18,7 @@
     "build": "tsc",
     "start": "node build/main.js",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test": "jest",
     "case1": "node build/main.js < cases/1.txt",
     "case2": "node build/main.js < cases/2.txt",
