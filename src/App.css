@@ -1,0 +1,23 @@
+.App {
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+input {
+  line-height: 21px;
+  border: none;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &:focus {
+    outline: none;
+  }
+}

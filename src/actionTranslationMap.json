@@ -1,0 +1,44 @@
+{
+  "English": {
+    "F": {
+      "command": "F",
+      "description": "To move forward"
+    },
+    "L": {
+      "command": "L",
+      "description": "To rotate left "
+    },
+    "R": {
+      "command": "R",
+      "description": "To rotate right"
+    }
+  },
+  "French": {
+    "A": {
+      "command": "F",
+      "description": "To move the robot one step forward"
+    },
+    "G": {
+      "command": "L",
+      "description": "To rotate the robot 90 angle to the left "
+    },
+    "D": {
+      "command": "R",
+      "description": "To rotate the robot 90 angle to the right"
+    }
+  },
+  "Swedish": {
+    "G": {
+      "command": "F",
+      "description": "To move the robot one step forward"
+    },
+    "V": {
+      "command": "L",
+      "description": "To rotate the robot 90 angle to the left "
+    },
+    "H": {
+      "command": "R",
+      "description": "To rotate the robot 90 angle to the right"
+    }
+  }
+}
