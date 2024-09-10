@@ -49,3 +49,7 @@ To run it using docker-compose:
 1. Install the dependencies using `yarn install`
 2. Run the app using `yarn run start`
 3. The app will be available on http://localhost:3000, by default
+
+## Deployment
+
+The app is automatically deployed to Azure on push to the following [URL](https://robot-simulator-fzfjhed2b9bqgue9.eastus-01.azurewebsites.net/).
